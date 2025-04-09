@@ -1,0 +1,79 @@
+/* 기본 스타일 */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  padding: 40px 20px;
+  margin: 0;
+  background-color: #fff;
+}
+
+h1 {
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+/* 입력 영역 스타일 */
+#todo-input {
+  padding: 12px;
+  width: 250px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+  transition: border 0.3s;
+}
+
+#todo-input:focus {
+  border-color: #007BFF;
+}
+
+#add-btn {
+  padding: 12px 20px;
+  margin-left: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #007BFF;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* todo 리스트 */
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+}
+
+li {
+  margin: 10px auto;
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 10px 15px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  word-break: break-word;
+}
+
+/* 삭제 버튼 */
+li button {
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 5px 10px;
+  font-size: 1em;
+  color: red;
+}
+
+li button:hover {
+  background: #ffeaea;
+}
