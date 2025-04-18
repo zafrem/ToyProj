@@ -27,13 +27,46 @@ addBtn.onclick = async () => {
   if (!text) return;
 
   await addDoc(collection(db, "todos"), {
-    text,
-    createdAt: new Date().toISOString()
+      text,
+      uid: auth.currentUser.uid,
+      createdAt: new Date().toISOString()
   });
 
   input.value = '';
   loadTodos();
 };
+
+import {
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
+
+const auth = getAuth();
+const provider = new GoogleAuthProvider();
+
+// 로그인 버튼 이벤트
+document.getElementById("login-btn").onclick = () => {
+  signInWithPopup(auth, provider);
+};
+
+// 로그아웃
+document.getElementById("logout-btn").onclick = () => {
+  signOut(auth);
+};
+
+// 로그인 상태 확인
+onAuthStateChanged(auth, user => {
+  if (user) {
+    console.log("로그인됨:", user.uid);
+    loadTodos(user.uid); // 사용자 UID로 개인 데이터 불러오기
+  } else {
+    console.log("로그아웃 상태");
+  }
+});
+
 
 // ✅ Firestore에서 할 일 불러오기
 async function loadTodos() {
