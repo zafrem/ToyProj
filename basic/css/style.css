@@ -1,0 +1,49 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* 왼쪽 정렬 */
+  margin-bottom: 10px;
+  gap: 12px;
+  width: 400px; /* 전체 줄 너비 고정 (원하면 조정 가능) */
+}
+
+
+.menu-item .desc {
+  font-size: 14px;
+  color: #444;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 1em;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  width: 120px; /* 버튼 너비 고정 */
+  text-align: center;
+}
+
+#add-btn {
+  min-width: auto;
+  padding: 10px 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

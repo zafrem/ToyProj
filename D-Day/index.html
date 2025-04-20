@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>D-Day 카드</title>
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <h1>D-Day 목록</h1>
+      <div class="button-group">
+        <button id="refreshBtn">🔄 새로고침</button>
+        <button id="backBtn">⬅ Back</button>
+        <button id="loginBtn">🔐 로그인</button>
+        <button id="logoutBtn" style="display: none;">🚪 로그아웃</button>
+        <span id="userName" style="display: none; font-weight: bold;"></span>
+      </div>
+    </div>
+
+    <!-- 일정 추가 폼 -->
+    <div id="addForm" style="display: none; margin-top: 1rem;">
+      <input type="text" id="newTitle" placeholder="제목" />
+      <input type="date" id="newDate" />
+      <input type="text" id="newTags" placeholder="태그 (쉼표로 구분)" />
+      <button id="addBtn">➕ 추가</button>
+    </div>
+
+    <input type="text" id="tagInput" placeholder="태그를 입력하세요 (예: 가족,업무)" />
+    <div id="cards"></div>
+  </div>
+
+  <!-- main script -->
+  <script type="module" src="./js/script.js"></script>
+</body>
+</html>

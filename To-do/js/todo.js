@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, deleteDoc, doc, query, where, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-firestore.js";
 import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-auth.js";
 import { firebaseConfig } from "./firebase-init.js";
 
@@ -20,7 +20,8 @@ onAuthStateChanged(auth, user => {
       await addDoc(collection(db, "todos"), {
         text,
         uid: user.uid,
-        createdAt: new Date().toISOString()
+        createdAt: new Date().toISOString(),
+        done: false
       });
 
       document.getElementById('todo-input').value = '';
@@ -43,8 +44,30 @@ async function loadTodos(uid) {
   snapshot.forEach(docSnap => {
     const data = docSnap.data();
     const li = document.createElement("li");
-    li.textContent = data.text;
 
+    // 왼쪽: 체크박스 + 텍스트
+    const left = document.createElement("div");
+    left.className = "todo-left";
+
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    checkbox.checked = data.done || false;
+
+    const span = document.createElement("span");
+    span.textContent = `${data.text} (${formatDate(data.createdAt)})`;
+    if (checkbox.checked) span.classList.add("done");
+
+    checkbox.onchange = async () => {
+      await updateDoc(doc(db, "todos", docSnap.id), {
+        done: checkbox.checked
+      });
+      loadTodos(uid);
+    };
+
+    left.appendChild(checkbox);
+    left.appendChild(span);
+
+    // 오른쪽: 삭제 버튼
     const btn = document.createElement("button");
     btn.textContent = "❌";
     btn.onclick = async () => {
@@ -52,7 +75,13 @@ async function loadTodos(uid) {
       loadTodos(uid);
     };
 
+    li.appendChild(left);
     li.appendChild(btn);
     list.appendChild(li);
   });
+}
+
+function formatDate(iso) {
+  const date = new Date(iso);
+  return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${date.getHours()}:${String(date.getMinutes()).padStart(2, '0')}`;
 }

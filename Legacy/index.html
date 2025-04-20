@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+<div class="header">
+    <button id="back-btn">← 뒤로 가기</button>
+</div>
+<h1>게임 선택</h1>
+  <div class="menu-list">
+    <div class="menu-item">
+      <a href="./src/sudoku.html">
+        <button>Sudoku</button>
+      </a>
+    </div>
+    <!-- 필요하면 여기 아래에 더 추가 가능 -->
+    <!--
+    <div class="menu-item">
+      <a href="./src/othergame.html">
+        <button>🎯 다른 게임</button>
+      </a>
+      <span class="desc">설명 텍스트</span>
+    </div>
+    -->
+  </div>
+</body>
+<script>
+  window.onload = () => {
+      document.getElementById('back-btn').onclick = () => {
+        window.location.href = '../index.html';
+      };
+  };
+</script>
+</html>

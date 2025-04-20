@@ -23,3 +23,7 @@ document.getElementById("login-btn").onclick = async () => {
     alert("로그인 실패: " + e.message);
   }
 };
+
+document.getElementById('backBtn').addEventListener('click', () => {
+  window.location.href = "../index.html";
+});

@@ -6,7 +6,7 @@ body {
   padding: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   height: 100vh;
   text-align: center;
@@ -27,7 +27,7 @@ h1, h2 {
 }
 
 /* 입력창 */
-input {
+input[type="text"] {
   padding: 12px 16px;
   font-size: 1em;
   width: 240px;
@@ -37,7 +37,7 @@ input {
   box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-input:focus {
+input[type="text"]:focus {
   border-color: #007bff;
 }
 
@@ -54,15 +54,9 @@ button {
   min-width: 100px;
 }
 
-/* 추가 버튼 */
 #add-btn {
   min-width: auto;
   padding: 10px 16px;
-}
-
-/* 로그아웃 버튼 여백 */
-#logout-btn {
-  margin-top: 20px;
 }
 
 button:hover {
@@ -73,20 +67,47 @@ button:hover {
 ul {
   list-style: none;
   padding: 0;
-  max-width: 400px;
+  max-width: 480px;
   margin: 20px auto;
 }
 
 li {
   background: white;
   margin: 10px 0;
-  padding: 12px 15px;
+  padding: 12px 16px;
   border-radius: 8px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  word-break: break-word;
+  gap: 12px;
+}
+
+/* 왼쪽 그룹 (체크박스 + 텍스트) */
+.todo-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-grow: 1;
+}
+
+/* 체크박스 */
+li input[type="checkbox"] {
+  transform: scale(1.1);
+  cursor: pointer;
+  margin: 0;
+}
+
+/* 텍스트 */
+li span {
+  text-align: left;
+  font-size: 1rem;
+}
+
+/* 완료된 항목 */
+li span.done {
+  text-decoration: line-through;
+  color: #999;
 }
 
 /* 삭제 버튼 */
@@ -94,11 +115,13 @@ li button {
   background: transparent;
   border: none;
   color: red;
-  font-size: 0.9em;       /* 더 작게 */
-  padding: 2px 6px;       /* 여백 줄임 */
+  font-size: 0.8em;
+  padding: 2px 4px;
+  margin-left: 12px;
   border-radius: 4px;
   cursor: pointer;
   line-height: 1;
+  min-width: 24px;
 }
 
 li button:hover {
@@ -112,11 +135,27 @@ li button:hover {
     gap: 8px;
   }
 
-  input {
+  input[type="text"] {
     width: 90%;
   }
 
   ul {
     width: 90%;
   }
+}
+
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+#logout-btn {
+  margin-top: 0;
+  min-width: 100px;
 }

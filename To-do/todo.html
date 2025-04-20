@@ -6,14 +6,15 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div class="top-bar">
+    <button id="logout-btn">🚪 로그아웃</button>
+  </div>
   <h1>📋 내 할 일</h1>
   <div class="input-row">
-    <input id="todo-input" placeholder="할 일 입력..." />
+    <input id="todo-input" type="text" placeholder="할 일 입력..." />
     <button id="add-btn">추가</button>
   </div>
   <ul id="todo-list"></ul>
-  <button id="logout-btn">🚪 로그아웃</button>
-
 
   <script type="module" src="./js/todo.js"></script>
 </body>
