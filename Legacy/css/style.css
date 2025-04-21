@@ -78,3 +78,29 @@ button {
   color: white;
   transition: background-color 0.2s;
 }
+
+@media screen and (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+    flex-direction: column;
+  }
+
+  .menu-item button {
+    width: 90%;
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .desc {
+    font-size: 12px;
+  }
+
+  .header {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  .menu-list {
+    gap: 16px;
+  }
+}

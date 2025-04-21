@@ -87,3 +87,42 @@ button:hover {
   justify-content: flex-end;
   padding: 10px 20px 0 0;
 }
+
+@media screen and (max-width: 600px) {
+  #sudoku-board {
+    grid-template-columns: repeat(9, 30px);
+    grid-template-rows: repeat(9, 30px);
+  }
+
+  .cell {
+    width: 28px;
+    height: 28px;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  #difficulty-label {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  #top-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .header {
+    justify-content: center;
+    padding: 10px;
+  }
+
+  #check-button button,
+  #reload-btn {
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+}
