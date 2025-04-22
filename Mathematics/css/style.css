@@ -1,0 +1,377 @@
+/* ===== style.css ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f2f2;
+  color: #333;
+}
+
+.header {
+  background-color: #333;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.button-group button {
+  padding: 6px 12px;
+  background-color: #555;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.button-group button:hover {
+  background-color: #777;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 1.8rem;
+}
+
+.level-group {
+  margin: 10px auto;
+  max-width: 600px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+  overflow: hidden;
+}
+
+.group-header {
+  background: #333;
+  color: white;
+  padding: 12px 20px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.group-content {
+  padding: 12px 20px;
+}
+
+.group-content a {
+  display: inline-block;
+  margin: 6px 10px;
+  padding: 8px 14px;
+  background: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.group-content a:hover {
+  background: #eee;
+  border-color: #aaa;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-group button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 4px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button-group button:hover {
+  background: #777;
+}
+
+
+/* ===== index.css ===== */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f0f2f5;
+  color: #333;
+}
+
+.header {
+  background: #333;
+  padding: 10px 20px;
+  text-align: right;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-group button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 4px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button-group button:hover {
+  background: #777;
+}
+
+
+h1 {
+  text-align: center;
+  margin: 40px 0 20px;
+  font-size: 1.8rem;
+}
+
+.category-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.category-card {
+  background: white;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  cursor: pointer;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 180px;
+  transition: transform 0.2s ease;
+}
+
+.category-card:hover {
+  transform: translateY(-4px);
+  background: #f8f8f8;
+}
+
+
+/* ===== 4th_rule_operation.css ===== */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top-bar button {
+  padding: 6px 12px;
+  border: none;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.top-bar button:hover {
+  background: #777;
+}
+
+.question-container {
+  padding: 20px;
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  margin-top: 20px;
+}
+
+.question {
+  margin: 12px 0;
+}
+
+/* ✅ 문제 한 줄 구성 - 더 조밀하게 */
+.problem-line {
+  display: grid;
+  grid-template-columns: 28px 35px 20px 35px 20px 100px;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.problem-line span {
+  font-size: 1.1rem;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ✅ 입력창 */
+input.answer {
+  box-sizing: border-box;
+  font-size: 1rem;
+  padding: 5px;
+  width: 100%;
+  height: 36px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.page-indicator {
+  text-align: center;
+  margin-top: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.button-group button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 4px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.button-group button:hover {
+  background: #777;
+}
+
+
+/* ✅ 모바일 반응형 */
+@media (max-width: 480px) {
+  .problem-line {
+    grid-template-columns: 24px 1fr 24px 1fr 16px 2fr;
+    gap: 3px;
+  }
+
+  .problem-line span {
+    font-size: 0.95rem;
+  }
+
+  input.answer {
+    height: 32px;
+    font-size: 0.95rem;
+  }
+
+  .top-bar button {
+    padding: 4px 8px;
+    font-size: 0.85rem;
+  }
+
+  #timer {
+    font-size: 0.9rem;
+  }
+}
+
+/* 공통 헤더 영역 */
+.header {
+  display: flex;
+  justify-content: space-between; /* ✅ 왼쪽: 로고, 오른쪽: 버튼 */
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #333;
+  color: white;
+}
+
+.logo {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 버튼 그룹 (툴바 안) */
+.button-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* 버튼 스타일 */
+.button-group button {
+  padding: 8px 14px;
+  font-size: 0.95rem;
+  border: none;
+  border-radius: 4px;
+  background: #555;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  height: 36px;
+  line-height: 1;
+}
+
+.button-group button:hover {
+  background: #777;
+}
+
+/* 사용자 이름 */
+#userName {
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: white;
+  margin-left: 8px;
+  display: none;
+}
+
+/* 반응형 */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+  }
+
+  .button-group {
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .button-group button {
+    width: 100%;
+    margin-top: 4px;
+  }
+}

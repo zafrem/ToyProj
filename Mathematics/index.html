@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>수학 문제 연습 - 카테고리 선택</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+<div id="header-container"></div>
+
+  <h1>학습 영역을 선택하세요</h1>
+
+  <div class="category-container">
+    <div class="category-card" onclick="location.href='./src/operation.html'">➕ 연산</div>
+    <div class="category-card">📐 기하 (준비 중)</div>
+    <div class="category-card">📊 통계 (준비 중)</div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="./js/firebase-init.js"></script>
+  <script src="./js/auth-handler.js"></script>
+  <script>
+   fetch("./src/header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+      });
+   function navigateHome() {
+      window.location.href = "../index.html";
+    }
+  </script>
+
+</body>
+</html>
