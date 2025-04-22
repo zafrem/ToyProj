@@ -359,19 +359,43 @@ input.answer {
 
 /* 반응형 */
 @media (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    align-items: flex-start;
-    height: auto;
-  }
+  h1 {
+      font-size: 1.4rem;
+      margin: 20px 0;
+      text-align: center;
+    }
 
-  .button-group {
-    flex-wrap: wrap;
-    justify-content: flex-start;
-  }
+    .category-container {
+      flex-direction: column;
+      padding: 10px;
+    }
 
-  .button-group button {
-    width: 100%;
-    margin-top: 4px;
-  }
+    .category-card {
+      width: 90%;
+      font-size: 1rem;
+      padding: 20px;
+    }
+
+    .level-group {
+      margin: 10px;
+    }
+
+    .group-header {
+      font-size: 1rem;
+      padding: 10px 14px;
+    }
+
+    .group-content a {
+      font-size: 0.9rem;
+      padding: 6px 12px;
+    }
+
+    .question-container {
+      padding: 16px;
+      margin: 16px 10px;
+    }
+
+    .page-indicator {
+      font-size: 0.9rem;
+    }
 }

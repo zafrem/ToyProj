@@ -78,29 +78,21 @@ button {
   color: white;
   transition: background-color 0.2s;
 }
+.menu-item button {
+  min-width: 240px; /* 버튼이 너무 작지 않게 */
+}
 
-@media screen and (max-width: 600px) {
-  h1 {
-    font-size: 24px;
-    flex-direction: column;
-  }
+.menu-list {
+  width: 100%;
+  padding: 0 1rem;
+}
 
-  .menu-item button {
-    width: 90%;
-    font-size: 16px;
-    padding: 12px 20px;
-  }
+h1::before {
+  font-size: 28px;
+}
 
-  .desc {
-    font-size: 12px;
-  }
-
-  .header {
-    justify-content: center;
-    padding: 10px;
-  }
-
-  .menu-list {
-    gap: 16px;
-  }
+.desc {
+  max-width: 300px;
+  margin: 6px auto 0;
+  line-height: 1.4;
 }

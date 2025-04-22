@@ -47,31 +47,40 @@ button {
 button:hover {
   background-color: #0056b3;
 }
-
-@media screen and (max-width: 480px) {
-  .menu-item {
-    flex-direction: column;
-    align-items: center;
-    width: 100%; /* 화면 가로에 맞춤 */
-    gap: 6px;
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 0.5rem;
   }
 
-  .menu-item button {
-    width: 80%; /* 버튼 너비를 화면 기준으로 줄임 */
+  .card h3 {
+    font-size: 1rem;
   }
 
-  .menu-item .desc {
-    font-size: 12px;
-    text-align: center;
-    padding: 0 10px;
+  .dday {
+    font-size: 1.5rem;
   }
 
-  h1 {
-    font-size: 1.5em;
+  .date,
+  .tags {
+    font-size: 0.8rem;
   }
 
-  body {
-    padding: 20px;
-    height: auto;
+  #tagInput {
+    width: 100%;
+    font-size: 0.95rem;
+  }
+
+  .edit-btn {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+  }
+
+  .delete-btn {
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: 0.8rem;
   }
 }
+
