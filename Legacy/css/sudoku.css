@@ -39,8 +39,8 @@ h1 {
   height: 38px;
   text-align: center;
   font-size: 18px;
-  color: white;                /* 글자색 흰색 */
-  border: 1px solid #ccc;      /* 연한 회색 선 */
+  color: black;
+  border: 1px solid #ccc;
   background-color: transparent;
   box-sizing: border-box;
 }

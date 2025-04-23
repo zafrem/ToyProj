@@ -112,17 +112,17 @@ body {
 
 #refreshBtn {
   padding: 0.5rem 1rem;
-  background-color: #ffcc00;
+  background-color: #ffff00;
   color: black;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 #refreshBtn:hover {
-  background-color: #357acc;
+  background-color: #cccc00;
 }
 
 .header {
@@ -153,17 +153,17 @@ body {
 
 .button-group button {
   padding: 0.5rem 1rem;
-  background-color: #ffcc00;
+  background-color: #ffff00;
   color: black;
   border: none;
-  border-radius: 20px;
+  border-radius: 10px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background-color 0.2s;
 }
 
 .button-group button:hover {
-  background-color: #e6b800;
+  background-color: #cccc00;
 }
 
 #addForm {

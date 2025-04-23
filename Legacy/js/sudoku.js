@@ -53,7 +53,12 @@ function renderBoard() {
 
 }
 
+let checkCount = 0; // 추가
+
 function checkSolution() {
+  checkCount++; // 카운트 증가
+  document.getElementById('check-count').textContent = `정답 확인: ${checkCount}회`;
+
   let correct = true;
   for (let row = 0; row < 9; row++) {
     for (let col = 0; col < 9; col++) {
@@ -67,7 +72,9 @@ function checkSolution() {
     }
   }
 
-  alert(correct ? '정답입니다! 🎉' : '틀린 부분이 있어요.');
+  if (correct) {
+    alert('정답입니다! 🎉');
+  }
 }
 
 window.onload = () => {
