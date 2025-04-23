@@ -9,14 +9,7 @@ window.initAuthHandler = function () {
   if (loginBtn && logoutBtn) {
     loginBtn.onclick = () => {
       const provider = new firebase.auth.GoogleAuthProvider();
-      firebase.auth().signInWithPopup(provider)
-        .then((result) => {
-          console.log("✅ 로그인 성공:", result.user);
-        })
-        .catch((error) => {
-          console.warn("⚠️ 팝업 실패, 리디렉션으로 대체:", error.code);
-          firebase.auth().signInWithRedirect(provider);
-        });
+      firebase.auth().signInWithRedirect(provider);
     };
 
     logoutBtn.onclick = () => {
@@ -24,11 +17,6 @@ window.initAuthHandler = function () {
         console.log("로그아웃 성공");
       }).catch(err => console.error("로그아웃 실패:", err));
     };
-
-    firebase.auth().onAuthStateChanged(user => {
-      console.log("🧪 currentUser:", user);
-    });
-
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
@@ -50,9 +38,14 @@ window.initAuthHandler = function () {
         } else {
           console.log("⚠️ 리디렉션은 됐지만 사용자 없음");
         }
+        // 상태 변화 감지는 여기서 등록
+        firebase.auth().onAuthStateChanged(user => {
+          // 위 코드처럼 UI 업데이트
+        });
       })
       .catch((error) => {
         console.error("❌ 로그인 실패:", error.message);
       });
+
   }
 };

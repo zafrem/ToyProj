@@ -8,5 +8,9 @@ const firebaseConfig = {
   measurementId: "G-E1JDK0WDWZ"
 };
 
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
+
+firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);
 

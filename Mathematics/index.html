@@ -20,13 +20,15 @@
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
   <script src="./js/firebase-init.js"></script>
   <script src="./js/auth-handler.js"></script>
+
   <script>
     fetch("./src/header.html")
       .then(res => res.text())
       .then(html => {
         document.getElementById("header-container").innerHTML = html;
-        window.initAuthHandler();
-        });
+        // 버튼 동작은 header 로딩 후 연결됨
+        window.initAuthHandler();  // auth-handler.js 내부에 이 함수 존재
+      });
     function navigateHome() {
       window.location.href = "../index.html";
     }
