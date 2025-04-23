@@ -7,22 +7,26 @@ body {
 }
 
 .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
   background-color: #333;
   color: white;
-  padding: 10px 20px;
+  flex-wrap: wrap; /* ✅ 추가: 줄바꿈 허용 */
+  row-gap: 8px;
+}
+
+.button-group {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;     /* ✅ 버튼이 넘치면 줄바꿈 */
   align-items: center;
+  gap: 10px;
 }
 
 .button-group button {
-  padding: 6px 12px;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-left: 5px;
+  flex-shrink: 0;       /* ✅ 줄어들지 않게 */
+  white-space: nowrap;
 }
 
 .button-group button:hover {
@@ -111,12 +115,6 @@ body {
   background: #333;
   padding: 10px 20px;
   text-align: right;
-}
-
-.button-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .button-group button {
@@ -357,6 +355,56 @@ input.answer {
   display: none;
 }
 
+.retry-problem {
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 16px;
+  margin: 16px auto;
+  background-color: #fdfdfd;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  max-width: 400px;
+  width: 90%;
+  position: relative;
+}
+
+.retry-problem-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.retry-problem-body {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+}
+
+.retry-problem input {
+  padding: 6px 10px;
+  font-size: 1rem;
+  width: 80px;
+  border: 1px solid #aaa;
+  border-radius: 6px;
+}
+
+.retry-problem button {
+  padding: 6px 14px;
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+}
+
+.retry-problem button:hover {
+  background-color: #0056b3;
+}
+
+
+
 /* 반응형 */
 @media (max-width: 600px) {
   h1 {
@@ -398,4 +446,12 @@ input.answer {
     .page-indicator {
       font-size: 0.9rem;
     }
+  }
+  .retry-problem {
+    padding: 12px;
+    font-size: 0.95rem;
+  }
+  .retry-problem input {
+    width: 60px;
+  }
 }

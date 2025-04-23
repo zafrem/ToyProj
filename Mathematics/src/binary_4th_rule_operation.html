@@ -20,35 +20,30 @@
     <button onclick="movePage(-1)">⬅ 이전</button>
     <button onclick="movePage(1)">다음 ➡</button>
   </div>
-  <script src="../js/4th_rule_operation.js"></script>
-  <script src="../js/auth-handler.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+  <script src="../js/firebase-init.js"></script>
   <script src="../js/navigate-home.js"></script>
   <script>
   fetch("./header.html")
-  .then(res => res.text())
-  .then(html => {
-    document.getElementById("header-container").innerHTML = html;
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-container").innerHTML = html;
+      // auth-handler.js 로드
+      const authScript = document.createElement("script");
+      authScript.src = "../js/auth-handler.js";
+      document.body.appendChild(authScript);
 
-    const timerEl = document.getElementById("timer");
-    if (timerEl) {
-      timerEl.style.display = "inline-block";
+      // binary_4th_rule_operation.js 로드
+      const opScript = document.createElement("script");
+      opScript.src = "../js/binary_4th_rule_operation.js";
+      document.body.appendChild(opScript);
 
-      // ✅ 타이머 시작은 이 시점 이후에 실행되어야 함
-      let timeLeft = timeLimit;
-
-      function updateTimer() {
-        const min = String(Math.floor(timeLeft / 60)).padStart(2, "0");
-        const sec = String(timeLeft % 60).padStart(2, "0");
-        timerEl.textContent = `${min}:${sec}`;
-        if (timeLeft > 0) {
-          timeLeft--;
-          setTimeout(updateTimer, 1000);
-        }
-      }
-
-      updateTimer(); // ✅ 타이머 시작
-    }
-  });
+      // ✅ 제출 버튼 보이기
+      const submitBtn = document.getElementById("submitBtn");
+      if (submitBtn) submitBtn.style.display = "inline-block";
+    });
   </script>
 </body>
 </html>

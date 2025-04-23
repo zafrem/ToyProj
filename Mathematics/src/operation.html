@@ -15,18 +15,22 @@
     <div class="category-card" onclick="location.href='./binary_operation_level.html'">2항 연산</div>
     <div class="category-card">3항 연산 (준비 중)</div>
     <div class="category-card">복합 연산 (준비 중)</div>
+    <div class="category-card" onclick="location.href='./operation_retry.html'">틀린 문제 다시 풀기</div>
   </div>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
   <script src="../js/firebase-init.js"></script>
-  <script src="../js/auth-handler.js"></script>
   <script src="../js/navigate-home.js"></script>
   <script>
-    fetch("./header.html")
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById("header-container").innerHTML = html;
-      });
+  fetch("./header.html")
+    .then(res => res.text())
+    .then(html => {
+      document.getElementById("header-container").innerHTML = html;
+      const script = document.createElement("script");
+      script.src = "../js/auth-handler.js";
+      document.body.appendChild(script);
+    });
   </script>
 </body>
 </html>
