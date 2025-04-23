@@ -14,7 +14,8 @@ window.initAuthHandler = function () {
           console.log("✅ 로그인 성공:", result.user);
         })
         .catch((error) => {
-          console.error("❌ 로그인 실패:", error);
+          console.warn("⚠️ 팝업 실패, 리디렉션으로 대체:", error.code);
+          firebase.auth().signInWithRedirect(provider);
         });
     };
 
