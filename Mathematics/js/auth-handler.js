@@ -38,14 +38,25 @@ window.initAuthHandler = function () {
         } else {
           console.log("⚠️ 리디렉션은 됐지만 사용자 없음");
         }
-        // 상태 변화 감지는 여기서 등록
+
         firebase.auth().onAuthStateChanged(user => {
-          // 위 코드처럼 UI 업데이트
+          console.log("🧪 인증 상태 변화 감지:", user);
+          if (user) {
+            loginBtn.style.display = "none";
+            logoutBtn.style.display = "inline-block";
+            userName.style.display = "inline-block";
+            userName.textContent = user.displayName || user.email || "사용자";
+          } else {
+            loginBtn.style.display = "inline-block";
+            logoutBtn.style.display = "none";
+            userName.style.display = "none";
+          }
         });
       })
       .catch((error) => {
         console.error("❌ 로그인 실패:", error.message);
       });
+
 
   }
 };
