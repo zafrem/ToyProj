@@ -30,7 +30,7 @@ h1 {
   grid-template-columns: repeat(9, 40px);
   grid-template-rows: repeat(9, 40px);
   gap: 2px;
-  background-color: #000;
+  background-color: gray;
   padding: 2px;
 }
 
@@ -51,7 +51,7 @@ h1 {
 }
 
 .wrong {
-  background-color: #f44336;
+  background-color: #ff9999;
   color: white;
 }
 
@@ -90,14 +90,14 @@ button:hover {
 
 @media screen and (max-width: 600px) {
   #sudoku-board {
-    grid-template-columns: repeat(9, 30px);
-    grid-template-rows: repeat(9, 30px);
+    grid-template-columns: repeat(9, 34px);
+    grid-template-rows: repeat(9, 34px);
   }
 
   .cell {
-    width: 28px;
-    height: 28px;
-    font-size: 14px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
   }
 
   h1 {

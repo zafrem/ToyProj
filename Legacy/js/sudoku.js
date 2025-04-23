@@ -39,10 +39,18 @@ function renderBoard() {
         input.classList.add('fixed');
       }
 
-      board.appendChild(input);
+      input.style.border = '1px solid #ccc'
       inputs[row][col] = input;
+      if (col % 3 === 0) input.style.borderLeft = '2px solid black';
+      if (col === 8) input.style.borderRight = '2px solid black';
+      if (row % 3 === 0) input.style.borderTop = '2px solid black';
+      if (row === 8) input.style.borderBottom = '2px solid black';
+
+      board.appendChild(input);
+
     }
   }
+
 }
 
 function checkSolution() {
