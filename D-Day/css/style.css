@@ -259,4 +259,25 @@ body {
     display: block;
     margin-top: 0.5rem;
   }
+  .card h3 {
+      font-size: 1.1rem;
+    }
+
+    .dday {
+      font-size: 1.6rem;
+    }
+
+    .date {
+      font-size: 0.95rem;
+    }
+
+    .tags {
+      font-size: 0.9rem;
+    }
+
+    .edit-btn,
+    .delete-btn {
+      font-size: 0.9rem;
+    }
+
 }
