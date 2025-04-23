@@ -1,32 +1,23 @@
-/* 공통 스타일 */
+/* 기본 리셋 및 공통 */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f6f8;
-  margin: 0;
-  padding: 0 16px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100vh;
+  padding: 80px 16px 40px; /* 상단 로그아웃, 하단 여백 */
   text-align: center;
-  padding-top: 60px; /* 상단 고정 바 여백 확보 */
 }
 
-h1, h2 {
-  color: #333;
-  margin-bottom: 20px;
-  font-size: 2rem;
-}
-
-/* 상단 고정 로그아웃 버튼 */
+/* 로그아웃 버튼 상단 고정 */
 .top-bar {
   width: 100%;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
   padding: 12px 16px;
-  box-sizing: border-box;
   position: fixed;
   top: 0;
   right: 0;
@@ -35,103 +26,94 @@ h1, h2 {
 }
 
 #logout-btn {
-  margin-top: 0;
-  min-width: 100px;
-}
-
-/* 입력창 + 추가 버튼 가로 배치 */
-.input-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
-  padding: 0 16px;
-  max-width: 480px;
-}
-
-/* 입력창 */
-input[type="text"] {
-  padding: 12px 16px;
-  font-size: 1em;
-  width: 240px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  outline: none;
-  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-
-input[type="text"]:focus {
-  border-color: #007bff;
-}
-
-/* 기본 버튼 스타일 */
-button {
-  padding: 10px 20px;
-  font-size: 1em;
+  padding: 10px 16px;
+  font-size: 0.95rem;
   border: none;
   border-radius: 8px;
   background-color: #007bff;
   color: white;
   cursor: pointer;
-  transition: background 0.2s ease;
-  min-width: 100px;
+}
+
+/* 제목 */
+h1 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+/* 입력창 + 추가 버튼 */
+.input-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+input[type="text"] {
+  padding: 12px;
+  font-size: 1rem;
+  flex: 1 1 200px;
+  max-width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
 }
 
 #add-btn {
-  min-width: auto;
-  padding: 10px 16px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
 }
 
-button:hover {
+#add-btn:hover,
+#logout-btn:hover {
   background-color: #0056b3;
 }
 
-/* Todo 리스트 */
+/* 리스트 */
 ul {
   list-style: none;
   padding: 0;
-  margin: 20px auto;
-  width: 100%;
-  padding: 0 16px;
-  box-sizing: border-box;
-  max-width: 480px;
+  margin-top: 10px;
 }
 
 li {
   background: white;
-  margin: 10px 0;
+  margin: 10px auto;
   padding: 12px 16px;
   border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  max-width: 480px;
   gap: 12px;
 }
 
-/* 왼쪽 그룹 (체크박스 + 텍스트) */
 .todo-left {
   display: flex;
   align-items: center;
   gap: 10px;
   flex-grow: 1;
+  word-break: break-word;
 }
 
-/* 체크박스 */
 li input[type="checkbox"] {
   transform: scale(1.1);
   cursor: pointer;
-  margin: 0;
 }
 
-/* 텍스트 */
 li span {
-  text-align: left;
   font-size: 1rem;
+  text-align: left;
 }
 
-/* 완료된 항목 */
 li span.done {
   text-decoration: line-through;
   color: #999;
@@ -142,87 +124,34 @@ li button {
   background: transparent;
   border: none;
   color: red;
-  font-size: 0.8em;
-  padding: 2px 4px;
-  margin-left: 12px;
+  font-size: 1.1rem;
+  padding: 4px 6px;
   border-radius: 4px;
   cursor: pointer;
-  line-height: 1;
-  min-width: 24px;
 }
 
 li button:hover {
   background-color: #ffeaea;
 }
 
-@media (max-width: 600px) {
-  h1, h2 {
-    font-size: 1.6rem;
-  }
-
-  body {
-    padding: 0 16px;
-    padding-top: 60px;
-    box-sizing: border-box;
-  }
-
-  .top-bar {
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 10px;
-  }
-
-  #logout-btn {
-    width: 100%;
-    max-width: 300px;
-    font-size: 0.95rem;
-    padding: 10px;
+/* 반응형 */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem;
   }
 
   .input-row {
     flex-direction: column;
     align-items: stretch;
-    width: 90%;
-    gap: 10px;
-    padding: 0 16px;
-    box-sizing: border-box;
   }
 
-  input[type="text"] {
-    width: 90%;
-    font-size: 1rem;
-  }
-
+  input[type="text"],
   #add-btn {
     width: 100%;
-    font-size: 1rem;
   }
 
-  ul {
-    width: 90%;
-    padding: 0 16px;
-    box-sizing: border-box;
-  }
-
-  li {
-    flex-direction: column;
-    align-items: flex-start;
-    width: 90%;
-    padding: 0 16px;
-    gap: 8px;
-  }
-
-  .todo-left {
-    flex-direction: row;
+  #logout-btn {
     width: 100%;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 10px;
-  }
-
-  li button {
-    align-self: flex-end;
-    font-size: 0.85rem;
-    padding: 6px 8px;
+    font-size: 0.95rem;
   }
 }
