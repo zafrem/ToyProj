@@ -24,6 +24,7 @@ body {
 .menu-item .desc {
   font-size: 14px;
   color: #444;
+  text-align: left;
 }
 
 button {
