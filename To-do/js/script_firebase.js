@@ -12,16 +12,13 @@ const firebaseConfig = {
   measurementId: "G-85Q7XL0ZM9"
 };
 
-// ✅ 초기화
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// ✅ 요소들
 const input = document.getElementById('todo-input');
 const addBtn = document.getElementById('add-btn');
 const list = document.getElementById('todo-list');
 
-// ✅ Firestore에 할 일 추가
 addBtn.onclick = async () => {
   const text = input.value.trim();
   if (!text) return;
@@ -47,28 +44,24 @@ import {
 const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-// 로그인 버튼 이벤트
 document.getElementById("login-btn").onclick = () => {
   signInWithPopup(auth, provider);
 };
 
-// 로그아웃
 document.getElementById("logout-btn").onclick = () => {
   signOut(auth);
 };
 
-// 로그인 상태 확인
 onAuthStateChanged(auth, user => {
   if (user) {
-    console.log("로그인됨:", user.uid);
-    loadTodos(user.uid); // 사용자 UID로 개인 데이터 불러오기
+    console.log("Login:", user.uid);
+    loadTodos(user.uid);
   } else {
-    console.log("로그아웃 상태");
+    console.log("Logout");
   }
 });
 
 
-// ✅ Firestore에서 할 일 불러오기
 async function loadTodos() {
   list.innerHTML = '';
   const querySnapshot = await getDocs(collection(db, "todos"));
@@ -89,5 +82,4 @@ async function loadTodos() {
   });
 }
 
-// ✅ 페이지 로드시 초기 목록 불러오기
 loadTodos();

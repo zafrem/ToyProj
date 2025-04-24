@@ -9,16 +9,15 @@
 <body>
   <div id="header-container"></div>
   <div class="question-container" id="question-container">
-    <!-- 문제 출력 영역 -->
   </div>
 
   <div class="page-indicator" id="page-indicator">
-    1 / 6 페이지
+    1 / 6 Page
   </div>
 
   <div class="page-controls" style="text-align: center; margin: 20px;">
-    <button onclick="movePage(-1)">⬅ 이전</button>
-    <button onclick="movePage(1)">다음 ➡</button>
+    <button onclick="movePage(-1)">⬅ Pre</button>
+    <button onclick="movePage(1)">Next ➡</button>
   </div>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
@@ -34,12 +33,12 @@
       document.getElementById("header-container").innerHTML = html;
       window.initAuthHandler();
 
-      // binary_4th_rule_operation.js 로드
+      // binary_4th_rule_operation.js Load
       const opScript = document.createElement("script");
       opScript.src = "../js/binary_4th_rule_operation.js";
       document.body.appendChild(opScript);
 
-      // ✅ 제출 버튼 보이기
+      // ✅ Submit Buttion
       const submitBtn = document.getElementById("submitBtn");
       if (submitBtn) submitBtn.style.display = "inline-block";
     });

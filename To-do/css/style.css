@@ -1,4 +1,4 @@
-/* 기본 리셋 및 공통 */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -8,7 +8,7 @@
 body {
   font-family: 'Segoe UI', sans-serif;
   background-color: #f4f6f8;
-  padding: 80px 16px 40px; /* 상단 로그아웃, 하단 여백 */
+  padding: 80px 16px 40px;
   text-align: center;
 }
 
@@ -17,7 +17,7 @@ button {
   font-size: 1rem;
   border: none;
   border-radius: 8px;
-  background-color: #00274d; /* 진한 남색 */
+  background-color: #00274d;
   color: white;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -27,7 +27,6 @@ button:hover {
   background-color: #001d3d;
 }
 
-/* 로그아웃 버튼 상단 고정 */
 .top-bar {
   width: 100%;
   display: flex;
@@ -50,13 +49,11 @@ button:hover {
   cursor: pointer;
 }
 
-/* 제목 */
 h1 {
   font-size: 1.5rem;
   margin-bottom: 20px;
 }
 
-/* 입력창 + 추가 버튼 */
 .input-row {
   display: flex;
   flex-direction: row;
@@ -91,7 +88,6 @@ input[type="text"] {
   background-color: #001d3d;
 }
 
-/* 리스트 */
 ul {
   list-style: none;
   padding: 0;
@@ -134,7 +130,6 @@ li span.done {
   color: #999;
 }
 
-/* 삭제 버튼 */
 li button {
   background: transparent;
   border: none;
@@ -149,7 +144,6 @@ li button:hover {
   background-color: #ffeaea;
 }
 
-/* 반응형 */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.3rem;

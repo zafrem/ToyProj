@@ -1,4 +1,4 @@
-/* ===== style.css ===== */
+
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -13,19 +13,19 @@ body {
   padding: 12px 20px;
   background-color: #333;
   color: white;
-  flex-wrap: wrap; /* ✅ 추가: 줄바꿈 허용 */
+  flex-wrap: wrap;
   row-gap: 8px;
 }
 
 .button-group {
   display: flex;
-  flex-wrap: wrap;     /* ✅ 버튼이 넘치면 줄바꿈 */
+  flex-wrap: wrap;
   align-items: center;
   gap: 10px;
 }
 
 .button-group button {
-  flex-shrink: 0;       /* ✅ 줄어들지 않게 */
+  flex-shrink: 0;
   white-space: nowrap;
 }
 
@@ -102,8 +102,6 @@ h1 {
   background: #777;
 }
 
-
-/* ===== index.css ===== */
 body {
   font-family: 'Segoe UI', sans-serif;
   margin: 0;
@@ -171,8 +169,6 @@ h1 {
   background: #f8f8f8;
 }
 
-
-/* ===== 4th_rule_operation.css ===== */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -219,7 +215,6 @@ body {
   margin: 12px 0;
 }
 
-/* ✅ 문제 한 줄 구성 - 더 조밀하게 */
 .problem-line {
   display: grid;
   grid-template-columns: 28px 35px 20px 35px 20px 100px;
@@ -236,7 +231,6 @@ body {
   text-overflow: ellipsis;
 }
 
-/* ✅ 입력창 */
 input.answer {
   box-sizing: border-box;
   font-size: 1rem;
@@ -279,7 +273,6 @@ input.answer {
 }
 
 
-/* ✅ 모바일 반응형 */
 @media (max-width: 480px) {
   .problem-line {
     grid-template-columns: 24px 1fr 24px 1fr 16px 2fr;
@@ -305,10 +298,9 @@ input.answer {
   }
 }
 
-/* 공통 헤더 영역 */
 .header {
   display: flex;
-  justify-content: space-between; /* ✅ 왼쪽: 로고, 오른쪽: 버튼 */
+  justify-content: space-between;
   align-items: center;
   padding: 12px 20px;
   background-color: #333;
@@ -320,14 +312,12 @@ input.answer {
   font-weight: bold;
 }
 
-/* 버튼 그룹 (툴바 안) */
 .button-group {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-/* 버튼 스타일 */
 .button-group button {
   padding: 8px 14px;
   font-size: 0.95rem;
@@ -346,7 +336,6 @@ input.answer {
   background: #777;
 }
 
-/* 사용자 이름 */
 #userName {
   font-size: 0.95rem;
   font-weight: bold;
@@ -404,8 +393,6 @@ input.answer {
 }
 
 
-
-/* 반응형 */
 @media (max-width: 600px) {
   h1 {
       font-size: 1.4rem;

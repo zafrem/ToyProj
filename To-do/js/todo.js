@@ -45,7 +45,6 @@ async function loadTodos(uid) {
     const data = docSnap.data();
     const li = document.createElement("li");
 
-    // 왼쪽: 체크박스 + 텍스트
     const left = document.createElement("div");
     left.className = "todo-left";
 
@@ -67,7 +66,6 @@ async function loadTodos(uid) {
     left.appendChild(checkbox);
     left.appendChild(span);
 
-    // 오른쪽: 삭제 버튼
     const btn = document.createElement("button");
     btn.textContent = "❌";
     btn.onclick = async () => {

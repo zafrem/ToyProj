@@ -7,7 +7,7 @@ const timeLimit = parseInt(params.get("time") || (60 + (first + second) * 5));
 let timeLeft = timeLimit;
 
 if ((type === "sub" || type === "div") && first < second) {
-  alert("❌ 뺄셈과 나눗셈은 첫 번째 수의 자리수가 두 번째 수보다 크거나 같아야 합니다.");
+  alert("❌ Subtraction and division must take into account the size of the number.");
   throw new Error("Invalid digit setting for subtraction or division.");
 }
 
@@ -89,7 +89,7 @@ inputs.forEach((input, idx) => {
 });
 
 const pageIndicator = document.getElementById("page-indicator");
-pageIndicator.textContent = `${page} / 6 페이지`;
+pageIndicator.textContent = `${page} / 6 Page`;
 
 function checkAnswers() {
   let correct = 0;
@@ -130,10 +130,10 @@ document.getElementById("submitBtn").onclick = () => {
         timestamp: new Date(),
         timeUsed: timeLimit - timeLeft
       })
-      .then(() => console.log("결과 저장 완료"))
-      .catch((err) => console.error("결과 저장 실패", err));
+      .then(() => console.log("Finish save results"))
+      .catch((err) => console.error("Finish save fail", err));
 
-    // 틀린 문제 저장
+    // Wrong Problems save
     const wrongProblemsRef = firebase.firestore()
       .collection("wrongProblems")
       .doc(user.uid)
@@ -156,16 +156,16 @@ document.getElementById("submitBtn").onclick = () => {
   }
 
   if (allCorrect) {
-    alert("🎉 모두 정답입니다!");
+    alert("🎉 All are correct!");
   } else {
-    alert("❗틀린 문제가 있어요. 다시 확인해보세요.");
+    alert("❗Wrong question, please check again.");
   }
 };
 
 
 function movePage(offset) {
   if (!isSubmitted) {
-    alert("먼저 제출 버튼을 눌러 정답을 확인해주세요!");
+    alert("Make sure to hit the Submit button first to confirm your answer!");
     return;
   }
 
@@ -175,7 +175,7 @@ function movePage(offset) {
   window.location.href = `binary_4th_rule_operation.html?type=${type}&first=${first}&second=${second}&time=${timeLimit}&page=${newPage}`;
 }
 
-// ✅ 타이머 실행
+// ✅ Run Timer
 const timer = document.getElementById("timer");
 if (timer) {
   timer.style.display = "inline-block";

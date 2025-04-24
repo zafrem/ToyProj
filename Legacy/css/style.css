@@ -79,7 +79,7 @@ button {
   transition: background-color 0.2s;
 }
 .menu-item button {
-  min-width: 240px; /* 버튼이 너무 작지 않게 */
+  min-width: 240px;
 }
 
 .menu-list {

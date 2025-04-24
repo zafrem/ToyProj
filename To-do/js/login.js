@@ -11,16 +11,15 @@ document.getElementById("login-btn").onclick = async () => {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
 
-    // 허용된 이메일만 로그인
     const allowed = ["zafrem@gmail.com"];
     if (!allowed.includes(user.email)) {
-      alert("허용되지 않은 사용자입니다.");
+      alert("This is an unauthorized user.");
       return;
     }
 
     window.location.href = "todo.html";
   } catch (e) {
-    alert("로그인 실패: " + e.message);
+    alert("Fail Logon: " + e.message);
   }
 };
 

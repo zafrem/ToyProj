@@ -12,26 +12,26 @@ window.initAuthHandler = function () {
       firebase.auth().signInWithPopup(provider) //FIXME signInWithRedirect
         .then(result => {
           const user = result.user;
-          console.log("✅ 팝업 로그인 성공:", user);
+          console.log("✅ Successful pop-up login:", user);
           updateUI(user);
         })
         .catch(error => {
-          console.error("❌ 팝업 로그인 실패:", error.message);
+          console.error("❌ Fail pop-up login:", error.message);
         });
     };
 
     logoutBtn.onclick = () => {
       firebase.auth().signOut()
         .then(() => {
-          console.log("로그아웃 성공");
+          console.log("Success Logout");
           updateUI(null);
         })
-        .catch(err => console.error("로그아웃 실패:", err));
+        .catch(err => console.error("Fail Logout:", err));
     };
 
     // 로그인 상태 유지 감지
     firebase.auth().onAuthStateChanged(user => {
-      console.log("🧪 인증 상태 감지:", user);
+      console.log("🧪 Debug-Detecting authentication status:", user);
       updateUI(user);
     });
   }
@@ -41,7 +41,7 @@ window.initAuthHandler = function () {
       loginBtn.style.display = "none";
       logoutBtn.style.display = "inline-block";
       userName.style.display = "inline-block";
-      userName.textContent = user.displayName || user.email || "사용자";
+      userName.textContent = user.displayName || user.email || "User";
     } else {
       loginBtn.style.display = "inline-block";
       logoutBtn.style.display = "none";

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>D-Day 카드</title>
+  <title>D-Day Card</title>
   <link rel="stylesheet" href="./css/style.css" />
 </head>
 <body>
@@ -11,23 +11,23 @@
     <div class="top-bar">
       <h1>D-Day</h1>
       <div class="button-group">
-        <button id="refreshBtn">🔄 새로고침</button>
+        <button id="refreshBtn">🔄 Refresh</button>
         <button id="backBtn">⬅ Back</button>
-        <button id="loginBtn">🔐 로그인</button>
-        <button id="logoutBtn" style="display: none;">🚪 로그아웃</button>
+        <button id="loginBtn">🔐 Logon</button>
+        <button id="logoutBtn" style="display: none;">🚪 Logout</button>
         <span id="userName" style="display: none; font-weight: bold;"></span>
       </div>
     </div>
 
     <!-- 일정 추가 폼 -->
     <div id="addForm" style="display: none; margin-top: 1rem;">
-      <input type="text" id="newTitle" placeholder="제목" />
+      <input type="text" id="newTitle" placeholder="Title" />
       <input type="date" id="newDate" />
-      <input type="text" id="newTags" placeholder="태그 (쉼표로 구분)" />
+      <input type="text" id="newTags" placeholder="Tag (separated by commas)" />
       <button id="addBtn">➕ 추가</button>
     </div>
 
-    <input type="text" id="tagInput" placeholder="태그를 입력하세요 (예: 가족,업무)" />
+    <input type="text" id="tagInput" placeholder="Enter a tag (e.g., Family, Work)" />
     <div id="cards"></div>
   </div>
 

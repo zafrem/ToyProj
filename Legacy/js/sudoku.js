@@ -11,9 +11,8 @@ function loadRandomPuzzle() {
       problem = puzzle.problem;
       solution = puzzle.solution;
 
-      // 난이도 표시
       const label = document.getElementById('difficulty-label');
-      label.textContent = `난이도: ${puzzle.difficulty === 'easy' ? '쉬움 🟢' : '어려움 🔴'}`;
+      label.textContent = `난이도: ${puzzle.difficulty === 'easy' ? 'Easy 🟢' : 'Hard 🔴'}`;
 
       renderBoard();
     });
@@ -53,11 +52,11 @@ function renderBoard() {
 
 }
 
-let checkCount = 0; // 추가
+let checkCount = 0;
 
 function checkSolution() {
-  checkCount++; // 카운트 증가
-  document.getElementById('check-count').textContent = `정답 확인: ${checkCount}회`;
+  checkCount++;
+  document.getElementById('check-count').textContent = `Check your answer: ${checkCount} Count`;
 
   let correct = true;
   for (let row = 0; row < 9; row++) {
@@ -73,7 +72,7 @@ function checkSolution() {
   }
 
   if (correct) {
-    alert('정답입니다! 🎉');
+    alert('Correct answer! 🎉');
   }
 }
 

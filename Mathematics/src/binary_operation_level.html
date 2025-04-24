@@ -2,31 +2,31 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>2항 연산 - 레벨 선택</title>
+  <title>Binary Calculations - Select Level</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../css/style.css" />
 </head>
 <body>
   <div id="header-container"></div>
-  <h1>2항 연산 - 레벨 선택</h1>
+  <h1>Binary Calculations - Select Level</h1>
 
   <div class="level-group">
     <div class="group-header" onclick="toggleGroup(this)">Level 1 ▾</div>
     <div class="group-content">
-      <a href="./binary_4th_rule_operation.html?type=add&first=1&second=1&time=60">➕ 더하기 1</a>
-      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=1&time=60">➕ 더하기 2</a>
-      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=2&time=60">➕ 더하기 3</a>
-      <a href="./binary_4th_rule_operation.html?type=add&first=3&second=2&time=60">➕ 더하기 4</a>
+      <a href="./binary_4th_rule_operation.html?type=add&first=1&second=1&time=60">➕ Add 1</a>
+      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=1&time=60">➕ Add 2</a>
+      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=2&time=60">➕ Add 3</a>
+      <a href="./binary_4th_rule_operation.html?type=add&first=3&second=2&time=60">➕ Add 4</a>
     </div>
   </div>
 
   <div class="level-group">
     <div class="group-header" onclick="toggleGroup(this)">Level 2 ▾</div>
     <div class="group-content">
-      <a href="./binary_4th_rule_operation.html?type=sub&first=1&second=1&time=60">➖ 빼기 1</a>
-      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=1&time=60">➖ 빼기 2</a>
-      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=2&time=60">➖ 빼기 3</a>
-      <a href="./binary_4th_rule_operation.html?type=sub&first=3&second=2&time=60">➖ 빼기 4</a>
+      <a href="./binary_4th_rule_operation.html?type=sub&first=1&second=1&time=60">➖ Sub 1</a>
+      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=1&time=60">➖ Sub 2</a>
+      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=2&time=60">➖ Sub 3</a>
+      <a href="./binary_4th_rule_operation.html?type=sub&first=3&second=2&time=60">➖ Sub 4</a>
     </div>
   </div>
 
@@ -34,10 +34,10 @@
   <div class="level-group">
     <div class="group-header" onclick="toggleGroup(this)">Level - ▾</div>
     <div class="group-content">
-      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=1&time=70">➕ 더하기</a>
-      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=1&time=70">➖ 빼기</a>
-      <a href="./binary_4th_rule_operation.html?type=mul&first=2&second=1&time=70">✖️ 곱하기</a>
-      <a href="./binary_4th_rule_operation.html?type=div&first=2&second=1&time=70">➗ 나누기</a>
+      <a href="./binary_4th_rule_operation.html?type=add&first=2&second=1&time=70">➕ Add</a>
+      <a href="./binary_4th_rule_operation.html?type=sub&first=2&second=1&time=70">➖ Sub</a>
+      <a href="./binary_4th_rule_operation.html?type=mul&first=2&second=1&time=70">✖️ Mul</a>
+      <a href="./binary_4th_rule_operation.html?type=div&first=2&second=1&time=70">➗ Div</a>
     </div>
   </div>
 
@@ -49,7 +49,6 @@
       header.textContent = header.textContent.replace(isOpen ? "▴" : "▾", isOpen ? "▾" : "▴");
     }
 
-    // 초기엔 접은 상태
     window.onload = () => {
       document.querySelectorAll('.group-content').forEach(c => c.style.display = 'none');
     };
