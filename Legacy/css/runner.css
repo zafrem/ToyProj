@@ -1,0 +1,113 @@
+body {
+  margin: 0;
+  background: #f7f7f7;
+}
+
+#game {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  background: url('../img/background.png') repeat-x bottom left;
+  background-position: bottom left;
+  background-size: cover;
+  background-size: auto 100%;
+  background-position: bottom left;
+  animation: scrollBackground 10s linear infinite;
+}
+
+
+@keyframes scrollBackground {
+  0% { background-position-x: 0; }
+  100% { background-position-x: -1000px; }
+}
+
+#background {
+  position: absolute;
+  z-index: -1;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-color: #b48a6b; /* ⬅️ 파스텔 갈색 배경 */
+}
+
+#player {
+  position: absolute;
+  bottom: 0;
+  left: 50px;
+  width: 58px;
+  height: 58px;
+}
+
+#sprite {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#player.idle {
+  background-image: url('../img/character_idle.png');
+}
+
+#player.running {
+  background-image: url('../img/character_run.png');
+  animation: bounce 0.4s ease-in-out infinite;
+}
+
+.obstacle {
+  position: absolute;
+  bottom: 0;
+  width: 58px;
+  height: 58px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+/* 흙 튀김 파티클 */
+.particle {
+  position: absolute;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #888;
+  border-radius: 50%;
+  animation: particleMove 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes particleMove {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--x), var(--y));
+    opacity: 0;
+  }
+}
+
+/* 이미지 상태 */
+#sprite.idle {
+  background-image: url('../img/character_idle.png');
+}
+#sprite.running {
+  background-image: url('../img/character_run.png');
+}
+
+@keyframes rotateJump {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes rotateOnly {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+#sprite.rotating {
+  animation: rotateOnly 0.6s linear;
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+

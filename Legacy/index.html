@@ -7,14 +7,27 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 <body>
-<div class="header">
-    <button id="back-btn">⬅ Back</button>
+<div class="top-bar">
+  <h1>🎮 Game Hub</h1>
+  <div class="button-group">
+    <button id="backBtn">⬅ Back</button>
+  </div>
 </div>
 <h1>Game Select</h1>
   <div class="menu-list">
     <div class="menu-item">
       <a href="./src/sudoku.html">
         <button>Sudoku</button>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="./src/breakout.html">
+        <button>Breakout</button>
+      </a>
+    </div>
+    <div class="menu-item">
+      <a href="./src/runner.html">
+        <button>Runner</button>
       </a>
     </div>
     <!--  -->
@@ -30,7 +43,7 @@
 </body>
 <script>
   window.onload = () => {
-      document.getElementById('back-btn').onclick = () => {
+      document.getElementById('backBtn').onclick = () => {
         window.location.href = '../index.html';
       };
   };

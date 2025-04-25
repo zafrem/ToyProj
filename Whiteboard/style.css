@@ -10,12 +10,12 @@ html, body {
   padding: 0;
   font-family: Arial, sans-serif;
   background: #f9f9f9;
-  overflow: hidden; /* 스크롤 없애기 */
+  overflow: hidden;
 }
 
 #top-bar {
   display: flex;
-  justify-content: space-between; /* 좌우 정렬 */
+  justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: rgba(255, 255, 255, 0.85);

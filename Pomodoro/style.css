@@ -56,3 +56,25 @@ html, body {
   color: #333;
 }
 
+#difficulty-select {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+}
+
+#difficulty-select button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 18px;
+  background-color: #eee;
+  border: 1px solid #aaa;
+  cursor: pointer;
+}
+
+#difficulty-select button.selected {
+  background-color: #8fffff; /* 초록빛 강조 */
+  color: white;
+  border-color: #5a9a5a;
+}

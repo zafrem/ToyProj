@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Runner Game</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/runner.css" />
+</head>
+<body>
+  <div class="top-bar">
+    <h1>Breakout</h1>
+    <div class="button-group">
+      <div id="difficulty-select">
+        <button onclick="startGame('easy', this)">쉬움</button>
+        <button onclick="startGame('hard', this)">어려움</button>
+      </div>
+      <button id="back-btn">⬅ Back</button>
+    </div>
+  </div>
+  <div id="background"></div>
+  <div id="game">
+    <div id="player">
+      <div id="sprite"></div>
+    </div>
+  </div>
+  <script src="../js/runner.js"></script>
+</body>
+</html>

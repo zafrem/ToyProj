@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>화이트보드</title>
+  <title>Whiteboard</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="top-bar">
+    <h1>White Board</h1>
     <div id="controls">
-      색상: <input type="color" id="color" value="#000000" />
-      두께: <input type="range" id="thickness" min="1" max="20" value="2" />
-      <button id="save">이미지 저장</button>
+      Color: <input type="color" id="color" value="#000000" />
+      Thickness: <input type="range" id="thickness" min="1" max="20" value="2" />
+      <button id="save">Image Save</button>
     </div>
     <button id="backBtn">⬅ Back</button>
   </div>
-
   <canvas id="board" width="800" height="500"></canvas>
-
   <script src="script.js"></script>
 </body>
 </html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Breakout Game</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/breakout.css">
+</head>
+<body>
+  <div class="top-bar">
+    <h1>Breakout</h1>
+    <div class="button-group">
+      <button id="back-btn">⬅ Back</button>
+    </div>
+  </div>
+  <div class="controls">
+  <button onclick="resetGame()">🔄 Reset</button>
+    <label for="difficulty">난이도:</label>
+    <select id="difficulty" onchange="setDifficulty(this.value)">
+      <option value="easy">Easy</option>
+      <option value="medium" selected>Medium</option>
+      <option value="hard">Hard</option>
+    </select>
+  </div>
+  <canvas id="gameCanvas" width="720" height="500"></canvas>
+  <script src="../js/breakout.js"></script>
+</body>
+</html>

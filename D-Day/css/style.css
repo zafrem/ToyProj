@@ -132,28 +132,20 @@ body {
   margin-bottom: 1rem;
 }
 
-
 .top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1.5rem;
+  background-color: #fffacd; /* 연노랑 */
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .top-bar h1 {
-  margin: 0;
-}
-
-.button-group {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-  flex-wrap: wrap;
+  color: #333;
 }
 
 .button-group button {
   padding: 0.5rem 1rem;
-  background-color: #ffff00;
+  background-color: #fff200;
   color: black;
   border: none;
   border-radius: 10px;
@@ -163,8 +155,16 @@ body {
 }
 
 .button-group button:hover {
-  background-color: #cccc00;
+  background-color: #d4bc00;
 }
+
+.button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
 
 #addForm {
   display: flex;

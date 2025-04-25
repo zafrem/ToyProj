@@ -14,7 +14,7 @@ canvas.addEventListener('mousedown', (e) => {
 
 canvas.addEventListener('mouseup', () => {
   painting = false;
-  ctx.beginPath(); // 새 경로로 초기화 (중간 선 남는 거 방지)
+  ctx.beginPath();
 });
 
 canvas.addEventListener('mouseleave', () => {
@@ -46,13 +46,26 @@ function draw(e) {
   ctx.moveTo(e.offsetX, e.offsetY);
 }
 
-// 클릭 시 저장
 saveButton.addEventListener('click', () => {
   const link = document.createElement('a');
   link.download = 'drawing.png';
   link.href = canvas.toDataURL();
   link.click();
 });
+
+function resizeCanvas() {
+  const topBarHeight = document.getElementById('top-bar').offsetHeight;
+
+  const width = canvas.clientWidth;
+  const height = window.innerHeight - topBarHeight;
+
+  canvas.width = width;
+  canvas.height = height;
+
+  ctx.lineCap = 'round';
+}
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('load', resizeCanvas);
 
 document.getElementById('backBtn').addEventListener('click', () => {
   window.location.href = "../index.html";
