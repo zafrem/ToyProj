@@ -14,7 +14,7 @@ let rightPressed = false;
 let leftPressed = false;
 
 let brickRowCount = window.innerWidth < 600 ? 4 : 6; // 모바일이면 4줄
-let brickColumnCount = window.innerWidth < 600 ? 5 : 8; // 모바일이면 5칸
+let brickColumnCount = 8
 const brickWidth = 75;
 const brickHeight = 20;
 const brickPadding = 10;
