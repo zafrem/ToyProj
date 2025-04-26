@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>Add, Sub 연산 문제</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/big_number.css" />
+</head>
+<body>
+  <h2 style="text-align:center;">랜덤 연산 문제</h2>
+  <div style="text-align:center;">
+    <button onclick="generateProblem()">문제 생성</button>
+  <div id="card-area"> <!-- 카드 박스 시작 -->
+
+    <div id="quiz-area">
+      <table id="quiz-table"></table>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <div id="answer-area">
+      <table id="answer-table"></table>
+      <div><button onclick="checkAnswer()">정답 확인</button></div>
+    </div>
+  </div> <!-- 카드 박스 끝 -->
+
+  <p id="result"></p>
+</div>
+  <script src="../js/big_number_add_sub_rule.js"></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>곱셈 문제</title>
+  <link rel="stylesheet" href="../css/big_number.css" />
+</head>
+<body>
+  <h2 style="text-align:center;">랜덤 곱셈 문제</h2>
+  <div style="text-align:center;">
+    <button onclick="generateMultiplication()">문제 생성</button>
+  </div>
+  <div id="card-area">
+    <table id="quiz-table"></table>
+    <div class="section-divider"></div>
+    <table id="mid-table"></table>
+    <div class="section-divider"></div>
+    <table id="answer-table"></table>
+    <p id="result"></p>
+    <button onclick="checkMultiplicationAnswer()">정답 확인</button>
+  </div>
+
+  <script src="../js/big_number_mul_rule.js"></script>
+</body>
+</html>
