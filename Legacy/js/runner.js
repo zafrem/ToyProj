@@ -163,13 +163,11 @@ function createObstacle() {
 }
 
 function startRandomObstacleGenerator() {
-  const interval = Math.random() * 2000 + 1000; // 1~3초
+  const interval = Math.random() * 2000 + 1000; // 1~3 sec
   setTimeout(() => {
-    // 70% 확률로 장애물 생성
     if (Math.random() < 0.7) {
       createObstacle();
     }
-    // 무조건 다음 생성 예약
     startRandomObstacleGenerator();
   }, interval);
 }

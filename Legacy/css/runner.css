@@ -16,7 +16,6 @@ body {
   animation: scrollBackground 10s linear infinite;
 }
 
-
 @keyframes scrollBackground {
   0% { background-position-x: 0; }
   100% { background-position-x: -1000px; }
@@ -86,10 +85,10 @@ body {
   }
 }
 
-/* 이미지 상태 */
 #sprite.idle {
   background-image: url('../img/character_idle.png');
 }
+
 #sprite.running {
   background-image: url('../img/character_run.png');
 }
@@ -103,9 +102,11 @@ body {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
 #sprite.rotating {
   animation: rotateOnly 0.6s linear;
 }
+
 @keyframes bounce {
   0%, 100% { transform: translateY(0); }
   50% { transform: translateY(-3px); }
