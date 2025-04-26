@@ -15,3 +15,10 @@ canvas {
   background: #eee;
   border: 1px solid #000;
 }
+
+@media (max-width: 600px) {
+  canvas {
+    width: 90vw;
+    height: auto;
+  }
+}

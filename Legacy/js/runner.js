@@ -43,13 +43,17 @@ function jump() {
   }, 600);
 }
 
-
 document.body.onkeydown = function (e) {
   if (e.code === 'Space') {
     jump();
     createParticles();
   }
 };
+
+document.addEventListener('touchstart', function (e) {
+  jump();
+  createParticles();
+});
 
 let frame = 0;
 setInterval(() => {
