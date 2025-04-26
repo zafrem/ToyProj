@@ -179,6 +179,18 @@ function setDifficulty(level) {
 
 draw();
 
+canvas.addEventListener('touchmove', function(e) {
+  const touch = e.touches[0];
+  const rect = canvas.getBoundingClientRect();
+  const touchX = touch.clientX - rect.left;
+
+  paddleX = touchX - paddleWidth / 2;
+
+  if (paddleX < 0) paddleX = 0;
+  if (paddleX + paddleWidth > canvas.width) paddleX = canvas.width - paddleWidth;
+});
+
+
 window.onload = () => {
   document.getElementById('back-btn').onclick = () => window.location.href = '../index.html';
 };
