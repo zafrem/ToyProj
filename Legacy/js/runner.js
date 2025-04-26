@@ -175,3 +175,12 @@ function startRandomObstacleGenerator() {
 window.onload = () => {
   document.getElementById('back-btn').onclick = () => window.location.href = '../index.html';
 };
+
+function resizeGameArea() {
+  const topBarHeight = document.querySelector('.top-bar').offsetHeight;
+  const game = document.getElementById('game');
+  game.style.height = (window.innerHeight - topBarHeight) + 'px';
+}
+
+window.addEventListener('resize', resizeGameArea);
+window.addEventListener('load', resizeGameArea);

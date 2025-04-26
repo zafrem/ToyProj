@@ -56,7 +56,7 @@ saveButton.addEventListener('click', () => {
 function resizeCanvas() {
   const topBarHeight = document.getElementById('top-bar').offsetHeight;
 
-  const width = canvas.clientWidth;
+  const width = window.innerWidth;
   const height = window.innerHeight - topBarHeight;
 
   canvas.width = width;
@@ -64,9 +64,34 @@ function resizeCanvas() {
 
   ctx.lineCap = 'round';
 }
+
 window.addEventListener('resize', resizeCanvas);
 window.addEventListener('load', resizeCanvas);
 
 document.getElementById('backBtn').addEventListener('click', () => {
   window.location.href = "../index.html";
+});
+
+canvas.addEventListener('touchstart', (e) => {
+  e.preventDefault();
+  painting = true;
+  const touch = e.touches[0];
+  ctx.beginPath();
+  ctx.moveTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+});
+
+canvas.addEventListener('touchmove', (e) => {
+  e.preventDefault();
+  if (!painting) return;
+  const touch = e.touches[0];
+  ctx.lineWidth = thicknessSlider.value;
+  ctx.strokeStyle = colorPicker.value;
+  ctx.lineCap = 'round';
+  ctx.lineTo(touch.clientX - canvas.offsetLeft, touch.clientY - canvas.offsetTop);
+  ctx.stroke();
+});
+
+canvas.addEventListener('touchend', () => {
+  painting = false;
+  ctx.beginPath();
 });
