@@ -41,6 +41,18 @@ document.addEventListener("keyup", e => {
   else if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
 });
 
+document.getElementById('left-btn').addEventListener('touchstart', () => leftPressed = true);
+document.getElementById('left-btn').addEventListener('touchend', () => leftPressed = false);
+document.getElementById('right-btn').addEventListener('touchstart', () => rightPressed = true);
+document.getElementById('right-btn').addEventListener('touchend', () => rightPressed = false);
+
+// 마우스로도 할 수 있게
+document.getElementById('left-btn').addEventListener('mousedown', () => leftPressed = true);
+document.getElementById('left-btn').addEventListener('mouseup', () => leftPressed = false);
+document.getElementById('right-btn').addEventListener('mousedown', () => rightPressed = true);
+document.getElementById('right-btn').addEventListener('mouseup', () => rightPressed = false);
+
+
 function drawBall() {
   ctx.beginPath();
   ctx.arc(x, y, ballRadius, 0, Math.PI * 2);
@@ -86,7 +98,9 @@ function collisionDetection() {
     for (let r = 0; r < brickRowCount; r++) {
       const b = bricks[c][r];
       if (b.status === 1) {
-        if (x > b.x && x < b.x + brickWidth && y > b.y && y < b.y + brickHeight) {
+        const buffer = 10;
+        if (x > b.x - buffer && x < b.x + brickWidth + buffer &&
+            y > b.y - buffer && y < b.y + brickHeight + buffer) {
           dy = -dy;
           b.status = 0;
         }

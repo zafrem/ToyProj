@@ -22,3 +22,24 @@ canvas {
     height: auto;
   }
 }
+
+.move-buttons {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.move-buttons button {
+  font-size: 32px;
+  padding: 20px 40px;
+  border: none;
+  border-radius: 10px;
+  background-color: #1976d2;
+  color: white;
+  cursor: pointer;
+}
+
+.move-buttons button:active {
+  background-color: #1565c0;
+}

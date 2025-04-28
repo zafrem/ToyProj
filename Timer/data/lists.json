@@ -1,0 +1,51 @@
+{
+  "categories": [
+    {
+      "name": "공부",
+      "items": [
+        {
+          "type": "Pomodoro",
+          "label": "Pomodoro",
+          "description": "25분 집중 + 5분 휴식",
+          "work": 1500,
+          "break": 300,
+          "repeat": 4
+        },
+        {
+          "type": "Deep Work",
+          "label": "Deep Work",
+          "description": "90분 깊은 집중",
+          "work": 5400,
+          "break": 1200,
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "name": "운동",
+      "items": [
+        {
+          "type": "Plank",
+          "label": "Plank",
+          "description": "30초 운동 + 60초 휴식",
+          "work": 30,
+          "break": 60,
+          "repeat": 1
+        }
+      ]
+    },
+    {
+      "name": "명상",
+      "items": [
+        {
+          "type": "Meditation",
+          "label": "Meditation",
+          "description": "10분 명상",
+          "work": 600,
+          "break": 0,
+          "repeat": 1
+        }
+      ]
+    }
+  ]
+}
