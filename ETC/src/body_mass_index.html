@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BMI Calculator</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body {
+      background-color: #f9f9f9;
+      color: black;
+    }
+
+    .top-bar {
+      background-color: #800080;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .button-group button {
+      background-color: #800080;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .bmi-container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .bmi-container label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .bmi-container input[type="range"],
+    .bmi-container input[type="number"] {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+    }
+
+    .bmi-container button {
+      background-color: #800080;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h1>BMI Calculator</h1>
+    <div class="button-group">
+      <button id="backBtn">⬅ Back</button>
+    </div>
+  </div>
+
+  <div class="bmi-container">
+    <label>Age: <span id="ageValue">48</span></label>
+    <input type="range" id="ageRange" min="0" max="80" value="48" oninput="syncAge(this.value)" />
+    <input type="number" id="age" min="0" max="80" value="48" oninput="syncAgeRange(this.value)" />
+
+    <label>Height: <span id="heightValue">172</span>cm</label>
+    <input type="range" id="heightRange" min="80" max="200" value="172" oninput="syncHeight(this.value)" />
+    <input type="number" id="height" min="80" max="200" value="172" oninput="syncHeightRange(this.value)" />
+
+    <label>Weight: <span id="weightValue">94</span>kg</label>
+    <input type="range" id="weightRange" min="30" max="150" value="94" oninput="syncWeight(this.value)" />
+    <input type="number" id="weight" min="30" max="150" value="94" oninput="syncWeightRange(this.value)" />
+
+    <button onclick="calculateBMI()">Calculate</button>
+    <div id="result"></div>
+  </div>
+
+  <script>
+    document.getElementById('backBtn').onclick = () => {
+      window.location.href = '../index.html';
+    };
+
+    function syncAge(val) {
+      document.getElementById("age").value = val;
+      document.getElementById("ageValue").innerText = val;
+    }
+    function syncAgeRange(val) {
+      document.getElementById("ageRange").value = val;
+      document.getElementById("ageValue").innerText = val;
+    }
+
+    function syncHeight(val) {
+      document.getElementById("height").value = val;
+      document.getElementById("heightValue").innerText = val;
+    }
+    function syncHeightRange(val) {
+      document.getElementById("heightRange").value = val;
+      document.getElementById("heightValue").innerText = val;
+    }
+
+    function syncWeight(val) {
+      document.getElementById("weight").value = val;
+      document.getElementById("weightValue").innerText = val;
+    }
+    function syncWeightRange(val) {
+      document.getElementById("weightRange").value = val;
+      document.getElementById("weightValue").innerText = val;
+    }
+
+    function calculateBMI() {
+      const age = parseInt(document.getElementById("age").value);
+      const height = parseFloat(document.getElementById("height").value) / 100;
+      const weight = parseFloat(document.getElementById("weight").value);
+      const bmi = weight / (height * height);
+      let category = "";
+
+      if (bmi < 18.5) category = "Underweight";
+      else if (bmi < 23) category = "Normal";
+      else if (bmi < 25) category = "Overweight";
+      else category = "Obese";
+
+      let ageNote = "";
+      if (age < 18) ageNote = "You are still growing. It may be helpful to consult a specialist.";
+      else if (age > 65) ageNote = "In older age, muscle mass should also be taken into account.";
+
+      document.getElementById("result").innerText =
+        `BMI : ${bmi.toFixed(1)}로 '${category}'.\n${ageNote}`;
+    }
+  </script>
+</body>
+</html>

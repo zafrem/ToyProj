@@ -76,4 +76,10 @@ async function loadCategories() {
   });
 }
 
+window.onload = () => {
+  document.getElementById('backBtn').onclick = () => {
+    window.location.href = '../index.html';
+  };
+};
+
 document.addEventListener('DOMContentLoaded', loadCategories);
