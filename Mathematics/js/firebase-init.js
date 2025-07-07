@@ -1,6 +1,6 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyDTT9oE_dZkX4daBtHTimVpKg6YqGdZf2M",
-  authDomain: "toyproject-12139.firebaseapp.com",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: "toyproject-12139",
   storageBucket: "toyproject-12139.firebasestorage.app",
   messagingSenderId: "528725286813",
