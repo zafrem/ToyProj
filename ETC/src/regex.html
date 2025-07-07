@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Regular expressions</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <style>
+    body {
+      background-color: #f9f9f9;
+      color: black;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    
+    .container {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 0 20px;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+    }
+    
+    .input-group label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    button {
+      background-color: #800080;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      width: 100%;
+    }
+    
+    button:hover {
+      background-color: #6a006a;
+    }
+    
+    .flags {
+      display: flex;
+      gap: 15px;
+      margin: 10px 0;
+      flex-wrap: wrap;
+    }
+    
+    .flag-option {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    
+    .results {
+      margin-top: 20px;
+      padding: 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      min-height: 100px;
+      background-color: white;
+      white-space: pre-wrap;
+    }
+    
+    .match {
+      background-color: #d4edda;
+      padding: 2px 4px;
+      border-radius: 3px;
+      margin: 2px 0;
+    }
+    
+    .error {
+      color: #dc3545;
+      font-weight: bold;
+    }
+
+    .top-bar {
+      background-color: #800080;
+      color: white;
+      padding: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .button-group button {
+      background-color: #800080;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .bmi-container {
+      max-width: 500px;
+      margin: 40px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      background-color: white;
+    }
+
+    .bmi-container label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    .bmi-container input[type="range"],
+    .bmi-container input[type="number"] {
+      width: 100%;
+      margin: 5px 0;
+      padding: 8px;
+    }
+
+    .bmi-container button {
+      background-color: #800080;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">
+    <h1>Regular expressions</h1>
+    <div class="button-group">
+      <button id="backBtn">⬅ Back</button>
+    </div>
+  </div>
+  <div class="regular-expressions">
+    <div class="container">
+      <div class="input-group">
+        <label for="regex">Regular Expression:</label>
+        <input type="text" id="regex" placeholder="Enter your regular expression" value="\\w+">
+        
+        <div class="flags">
+          <div class="flag-option">
+            <input type="checkbox" id="global" checked>
+            <label for="global">Global (g)</label>
+          </div>
+          <div class="flag-option">
+            <input type="checkbox" id="caseInsensitive">
+            <label for="caseInsensitive">Case insensitive (i)</label>
+          </div>
+          <div class="flag-option">
+            <input type="checkbox" id="multiline">
+            <label for="multiline">Multiline (m)</label>
+          </div>
+        </div>
+      </div>
+      
+      <div class="input-group">
+        <label for="testString">Test String:</label>
+        <textarea id="testString" placeholder="Enter text to test the regular expression against">Hello world! This is a test string with 123 numbers and some special characters: @#%^&*</textarea>
+      </div>
+      
+      <button id="testBtn">Test Regular Expression</button>
+      
+      <div class="results" id="results">
+        Results will appear here...
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const regexInput = document.getElementById('regex');
+      const testString = document.getElementById('testString');
+      const testBtn = document.getElementById('testBtn');
+      const resultsDiv = document.getElementById('results');
+      const globalCheckbox = document.getElementById('global');
+      const caseInsensitiveCheckbox = document.getElementById('caseInsensitive');
+      const multilineCheckbox = document.getElementById('multiline');
+      const backBtn = document.getElementById('backBtn');
+      
+      // Handle back button
+      backBtn.addEventListener('click', function() {
+        window.history.back();
+      });
+      
+      function testRegex() {
+        const regexStr = regexInput.value;
+        const testStr = testString.value;
+        
+        // Build flags string
+        let flags = '';
+        if (globalCheckbox.checked) flags += 'g';
+        if (caseInsensitiveCheckbox.checked) flags += 'i';
+        if (multilineCheckbox.checked) flags += 'm';
+        
+        try {
+          const regex = new RegExp(regexStr, flags);
+          const matches = testStr.matchAll(regex);
+          const matchesArray = Array.from(matches);
+          
+          if (matchesArray.length === 0) {
+            resultsDiv.innerHTML = '<div>No matches found.</div>';
+            return;
+          }
+          
+          let resultHtml = `
+            <div><strong>${matchesArray.length} matches found:</strong></div>
+            <div style="margin-top: 10px;">
+          `;
+          
+          // Highlight matches in the test string
+          let lastIndex = 0;
+          let highlightedText = '';
+          const text = testStr;
+          
+          // Reset regex lastIndex for global search
+          const tempRegex = new RegExp(regexStr, flags);
+          let match;
+          
+          while ((match = tempRegex.exec(text)) !== null) {
+            // Add text before match
+            highlightedText += text.slice(lastIndex, match.index);
+            // Add highlighted match
+            highlightedText += `<span class="match">${match[0]}</span>`;
+            lastIndex = tempRegex.lastIndex;
+            
+            // Avoid infinite loops for zero-length matches
+            if (match.index === tempRegex.lastIndex) {
+              tempRegex.lastIndex++;
+            }
+          }
+          
+          // Add remaining text
+          highlightedText += text.slice(lastIndex);
+          
+          // Display results
+          resultHtml += `
+            <div style="background: white; padding: 10px; border: 1px solid #eee; border-radius: 4px; margin-bottom: 10px; white-space: pre-wrap;">
+              ${highlightedText}
+            </div>
+            <div style="margin-top: 15px;">
+              <strong>Match details:</strong>
+              <ul style="margin-top: 5px;">
+          `;
+          
+          matchesArray.forEach((match, index) => {
+            resultHtml += `
+              <li>
+                <strong>Match ${index + 1}:</strong> ${match[0]}
+                ${match.groups ? `<br>Groups: ${JSON.stringify(match.groups)}` : ''}
+              </li>
+            `;
+          });
+          
+          resultHtml += `
+              </ul>
+            </div>
+          `;
+          
+          resultsDiv.innerHTML = resultHtml;
+          
+        } catch (error) {
+          resultsDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+        }
+      }
+      
+      // Add event listeners
+      testBtn.addEventListener('click', testRegex);
+      
+      // Also test when Enter is pressed in the regex input
+      regexInput.addEventListener('keyup', function(e) {
+        if (e.key === 'Enter') {
+          testRegex();
+        }
+      });
+      
+      // Initial test
+      testRegex();
+    });
+  </script>
+</body>
+</html>
