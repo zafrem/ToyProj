@@ -1,25 +1,45 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>곱셈 문제</title>
+  <title>Vertical Multiplication</title>
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/big_number.css" />
 </head>
 <body>
-  <h2 style="text-align:center;">랜덤 곱셈 문제</h2>
-  <div style="text-align:center;">
-    <button onclick="generateMultiplication()">문제 생성</button>
-  </div>
+  <div id="header-container"></div>
+  <h1 id="problem-title">Vertical Multiplication</h1>
   <div id="card-area">
     <table id="quiz-table"></table>
-    <div class="section-divider"></div>
     <table id="mid-table"></table>
     <div class="section-divider"></div>
     <table id="answer-table"></table>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <button onclick="checkMultiplicationAnswer()">Check Answer</button>
+    </div>
     <p id="result"></p>
-    <button onclick="checkMultiplicationAnswer()">정답 확인</button>
   </div>
 
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/navigate-home.js"></script>
+  <script src="../js/auth-handler.js"></script>
   <script src="../js/big_number_mul_rule.js"></script>
+
+  <script>
+    fetch("./header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+        window.initAuthHandler();
+        // Auto-generate problem on page load
+        generateMultiplication();
+      });
+    function navigateHome() {
+      window.location.href = "../index.html";
+    }
+  </script>
 </body>
 </html>

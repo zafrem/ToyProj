@@ -1,20 +1,42 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>나눗셈 빈칸 채우기</title>
+  <title>Vertical Division</title>
+  <link rel="stylesheet" href="../css/style.css" />
   <link rel="stylesheet" href="../css/big_number.css" />
 </head>
 <body>
-  <h2 style="text-align:center;">긴 나눗셈 빈칸 채우기</h2>
-  <div style="text-align:center;">
-    <button onclick="generateDivision()">문제 생성</button>
-  </div>
+  <div id="header-container"></div>
+  <h1 id="problem-title">Vertical Division</h1>
   <div id="card-area">
     <table id="quiz-table"></table>
+
+    <div style="text-align: center; margin: 20px 0;">
+      <button onclick="checkDivisionAnswer()">Check Answer</button>
+    </div>
     <p id="result"></p>
-    <button onclick="checkDivisionAnswer()">정답 확인</button>
   </div>
+
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+  <script src="../js/firebase-init.js"></script>
+  <script src="../js/navigate-home.js"></script>
+  <script src="../js/auth-handler.js"></script>
   <script src="../js/big_number_div_rule.js"></script>
+
+  <script>
+    fetch("./header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header-container").innerHTML = html;
+        window.initAuthHandler();
+        // Auto-generate problem on page load
+        generateDivision();
+      });
+    function navigateHome() {
+      window.location.href = "../index.html";
+    }
+  </script>
 </body>
 </html>
